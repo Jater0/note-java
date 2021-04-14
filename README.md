@@ -117,3 +117,175 @@ public class Main {
 1. **当使用JDBC链接数据库时使用`Class.forName()`通过反射加载数据库的驱动程序**
 2. **Spring框架的IoC创建对象以及AOP功能都和反射有联系**
 3. **动态配置实例的属性**
+
+
+
+## Annotation(注解)
+
+#### 介绍
+
+**Annotation是Java5引入的新特性**
+
+**它提供了一种安全的类似注释的机制, 用来将任何的信息或元数据(`metadata`)与程序元素(Class, function, variable等)进行关联.**
+
+**为程序的元素加上更直观和更明了的说明,这些说明信息是与程序的业务逻辑无关,并且供指定的工具或框架使用**
+
+**Annotation像一种修饰符一样,应用于包,类型,构造方法,方法,成员变量,参数以及本地变量的声明语句中.**
+
+-----
+
+#### 用处
+
+1. **生成文档: 最常见, 也是Java最早提供的注解. 常用的有@param @return等**
+2. **跟踪代码依赖性, 实现替代配置文件功能. 比如Dagger 2 依赖注入**
+3. **在编辑时进行格式检查. 如@Override**
+
+-----
+
+#### 原理
+
+​	**注解本质是一个继承Annotation的特殊接口，其具体实现类是Java运行时生成的动态代理类。而我们通过反射获取注解时， 返回的是Java运行时生成的动态代理对象`$Proxy1`。**
+
+​	**通过代理对象调用自定义的注解(接口)的方法，会最终调用`AnnotationInvocationHandler`的invoke方法。该方法会从`memberValues`这个Map中索引出对应的值。而`memberValues`的来源是Java常量池**
+
+-----
+
+#### 元注解
+
+**`@Docuemnted`： 注解是否将包含到Java Doc中**
+
+**`@Retention`： 什么时候使用该注解**
+
+**`@Target`： 注解用于什么地方**
+
+**`@Inherited`： 是否允许子类继承该注解**
+
+
+
+1. **`@Retention`： 定义该注解的生命周期**
+
+   - **`RetentionPolicy.SOURCE`：在编译阶段丢弃。这些注解在编译结束之后就不再有任何意义，所以它们不会写入字节码。`@Override`， `@SuppressWarning`都属于这类注解**
+   - **`RetentionPolicy.CLASS`：在类加载阶段丢弃。在字节码文件的处理中有用。注解默认使用这种方式**
+   - **`RetentionPolicy.RUNTIME`：始终不丢弃，运行期也保留该注解，因此可以使用反射机制读取该注解的信息**
+
+2. **`@Target`： 表示该注解用于什么地方。默认值为任何元素，表示该注解用于什么地方。可用的`ElementType`参数包括**
+
+   - **`ElementType.CONSTRUCTOR`：用于构造器**
+   - **`ElementType.FIELD`： 成员变量、对象、属性(包括enum实例)**
+   - **`ElementType.LOCAL_VARIABLE`：用于描述局部变量**
+   - **`ElementType.METHOD`：用于描述方法**
+   - **`ElementType.PACKAGE`：用于描述包**
+   - **`ElementType.PARAMETER`：用于描述参数**
+   - **`ElementType.TYPE`：用来描述类、接口(包括注解类型)或enum声明**
+
+3. **`@Documented`：一个简单的Annotation标记注解，表示是否将注解信息添加在Java文档中**
+
+4. **`@Inherited`：表示该注释和子类的关系**
+
+   **`@Inherited` 元注解是一个标记注解，`@Inherited` 阐述了某个被标注的类型是被继承的。如果一个使用了`@Inherited` 修饰的annotation 类型被用于一个class，则这个annotation 将被用于该class 的子类。**
+
+-----
+
+#### 自定义注解
+
+##### 规则
+
+1. **Annotation型定义为@interface，所有的Annotation会自动继承java.lang.Annotation这一接口，并且不能再去继承别的类或是接口**
+2. **参数成员只能用public或默认(default)这两个访问权修饰**
+3. **参数成员只能用基本类型byte、short、char、int、long、float、double、boolean八种基本数据类型和String、Enum、Class、annotation等数据类型，以及这些类型的数组**
+4. **要获取类方法和字段的注解信息，必须通过Java的反射技术来获取Annotation对象，因此没有别的获取注解对象的方法**
+5. **注解也可以没有成员对象，不过这样注解就没啥用了**
+
+##### 案例
+
+###### `FruitName`
+
+```Java
+@Target(ElementType.FIELD)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface FruitName {
+    String value() default "";
+}
+```
+
+###### `FruitColor`
+
+```java
+@Target(ElementType.FIELD)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface FruitColor {
+    enum Color{
+        BlUE, RED, GREEN
+    }
+
+    Color fruitColor() default Color.GREEN;
+}
+```
+
+###### `FruitProvider`
+
+```java
+@Target(ElementType.FIELD)
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+public @interface FruitProvider {
+    int id() default -1;
+    String name() default "";
+    String address() default "";
+}
+```
+
+###### `Apple`
+
+```java
+public class Apple {
+    @FruitName("Apple")
+    private String appleName;
+
+    @FruitColor(fruitColor = FruitColor.Color.RED)
+    private String appleColor;
+
+    @FruitProvider(id = 1, name = "HHH", address = "China")
+    private String appleProvider;
+
+    public String getAppleName() {
+        return appleName;
+    }
+
+    public void setAppleName(String appleName) {
+        this.appleName = appleName;
+    }
+
+    public String getAppleColor() {
+        return appleColor;
+    }
+
+    public void setAppleColor(String appleColor) {
+        this.appleColor = appleColor;
+    }
+
+    public String getAppleProvider() {
+        return appleProvider;
+    }
+
+    public void setAppleProvider(String appleProvider) {
+        this.appleProvider = appleProvider;
+    }
+}
+```
+
+###### `Main`
+
+```java
+public class Main {
+    public static void main(String[] args) {
+        FruitInfoUtil.getFruitInfo(Apple.class);
+    }
+}
+```
+
+###### `Output`
+
+![实例输出](\images\annotation-output.png)

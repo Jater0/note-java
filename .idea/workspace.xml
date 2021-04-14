@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8a408a2d-ffae-40a8-8283-ece3ec8f3119" name="Default Changelist" comment="" />
+    <list default="true" id="8a408a2d-ffae-40a8-8283-ece3ec8f3119" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Annontation/Annontation.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Annontation/src/cn/jater/learn/java_basic/annontation/Apple.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Annontation/src/cn/jater/learn/java_basic/annontation/FruitColor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Annontation/src/cn/jater/learn/java_basic/annontation/FruitInfoUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Annontation/src/cn/jater/learn/java_basic/annontation/FruitName.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Annontation/src/cn/jater/learn/java_basic/annontation/FruitProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Annontation/src/cn/jater/learn/java_basic/annontation/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -16,41 +28,73 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Reflection/src/cn/jater/learn/java_basic/reflection/demo_02/Student.java">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Annontation/src/cn/jater/learn/java_basic/annontation/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="24" column="61" selection-start-line="24" selection-start-column="61" selection-end-line="24" selection-end-column="61" />
+            <state relative-caret-position="203">
+              <caret line="7" selection-start-line="7" selection-end-line="7" />
               <folding>
-                <element signature="e#102#103#0" expanded="true" />
-                <element signature="e#138#139#0" expanded="true" />
-                <element signature="e#202#203#0" expanded="true" />
-                <element signature="e#238#239#0" expanded="true" />
-                <element signature="e#282#283#0" expanded="true" />
-                <element signature="e#318#319#0" expanded="true" />
-                <element signature="e#381#382#0" expanded="true" />
-                <element signature="e#417#418#0" expanded="true" />
-                <element signature="e#478#479#0" expanded="true" />
-                <element signature="e#514#515#0" expanded="true" />
-                <element signature="e#578#579#0" expanded="true" />
-                <element signature="e#648#649#0" expanded="true" />
+                <element signature="e#111#112#0" expanded="true" />
+                <element signature="e#166#167#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Reflection/src/cn/jater/learn/java_basic/reflection/demo_02/Main.java">
+        <entry file="file://$PROJECT_DIR$/Annontation/src/cn/jater/learn/java_basic/annontation/FruitName.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="812">
-              <caret line="28" column="30" selection-start-line="28" selection-start-column="30" selection-end-line="28" selection-end-column="30" />
+            <state relative-caret-position="116">
+              <caret line="4" selection-start-line="4" selection-end-line="9" selection-end-column="1" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor" />
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Annontation/src/cn/jater/learn/java_basic/annontation/FruitColor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="116">
+              <caret line="4" selection-start-line="4" selection-end-line="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Annontation/src/cn/jater/learn/java_basic/annontation/FruitProvider.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="56">
+              <caret line="4" selection-start-line="4" selection-end-line="11" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Annontation/src/cn/jater/learn/java_basic/annontation/Apple.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="145">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="358">
+                <caret line="178" column="28" selection-start-line="178" selection-start-column="28" selection-end-line="178" selection-end-column="28" />
+                <folding>
+                  <element signature="e#80#81#0" expanded="true" />
+                  <element signature="e#111#112#0" expanded="true" />
+                  <element signature="e#147#148#0" expanded="true" />
+                  <element signature="e#196#197#0" expanded="true" />
+                  <element signature="e#231#232#0" expanded="true" />
+                  <element signature="e#282#283#0" expanded="true" />
+                </folding>
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -58,9 +102,13 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="AnnotationType" />
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -72,6 +120,13 @@
         <option value="$PROJECT_DIR$/Reflection/src/cn/jater/learn/java_basic/reflection/demo_01/Main.java" />
         <option value="$PROJECT_DIR$/Reflection/src/cn/jater/learn/java_basic/reflection/demo_02/Student.java" />
         <option value="$PROJECT_DIR$/Reflection/src/cn/jater/learn/java_basic/reflection/demo_02/Main.java" />
+        <option value="$PROJECT_DIR$/Annontation/src/cn/jater/learn/java_basic/annontation/FruitName.java" />
+        <option value="$PROJECT_DIR$/Annontation/src/cn/jater/learn/java_basic/annontation/Apple.java" />
+        <option value="$PROJECT_DIR$/Annontation/src/cn/jater/learn/java_basic/annontation/Main.java" />
+        <option value="$PROJECT_DIR$/Annontation/src/cn/jater/learn/java_basic/annontation/FruitColor.java" />
+        <option value="$PROJECT_DIR$/Annontation/src/cn/jater/learn/java_basic/annontation/FruitInfoUtil.java" />
+        <option value="$PROJECT_DIR$/Annontation/src/cn/jater/learn/java_basic/annontation/FruitProvider.java" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -85,8 +140,11 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-9" />
     <option name="y" value="-9" />
-    <option name="width" value="978" />
-    <option name="height" value="1048" />
+    <option name="width" value="977" />
+    <option name="height" value="1038" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -101,6 +159,24 @@
               <item name="Java_Basic" type="b2602c69:ProjectViewProjectNode" />
               <item name="Java_Basic" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="Java_Basic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Java_Basic" type="462c0819:PsiDirectoryNode" />
+              <item name="Annontation" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Java_Basic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Java_Basic" type="462c0819:PsiDirectoryNode" />
+              <item name="Annontation" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Java_Basic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Java_Basic" type="462c0819:PsiDirectoryNode" />
+              <item name="Annontation" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="annontation" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -109,6 +185,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -127,7 +204,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Main (1)">
+  <component name="RunManager" selected="Application.Main (2)">
     <configuration name="DumpMethods" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cn.jater.learn.java_basic.reflection.DumpMethods" />
       <module name="Reflection" />
@@ -154,6 +231,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Main (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.jater.learn.java_basic.annontation.Main" />
+      <module name="Annontation" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.jater.learn.java_basic.annontation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="cn.jater.learn.java_basic.reflection.demo_01.Main" />
       <module name="Reflection" />
@@ -169,6 +259,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main (2)" />
         <item itemvalue="Application.Main (1)" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.DumpMethods" />
@@ -185,32 +276,33 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1618326699000</updated>
-      <workItem from="1618326704608" duration="6069000" />
+      <workItem from="1618326704608" duration="11519000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="6069000" />
+    <option name="totallyTimeSpent" value="11519000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Image Layers" />
       <window_info id="Designer" />
       <window_info id="UI Designer" />
       <window_info id="Capture Tool" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16689008" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16152816" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Messages" weight="0.32956153" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" />
       <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Terminal" weight="0.46600565" />
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.33333334" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.9575672" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3186969" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -275,28 +367,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor />
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Reflection/src/cn/jater/learn/java_basic/reflection/demo_01/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="15" column="11" lean-forward="true" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#388#456#0" />
-            <element signature="e#641#677#0" />
-            <element signature="e#846#881#0" />
-            <element signature="e#1033#1073#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Reflection/src/cn/jater/learn/java_basic/reflection/demo_01/TargetObject.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="58">
@@ -334,6 +404,87 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Reflection/src/cn/jater/learn/java_basic/reflection/demo_01/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29">
+          <caret line="15" column="11" lean-forward="true" selection-start-line="15" selection-start-column="11" selection-end-line="15" selection-end-column="11" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Annontation/Annontation.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="9" column="14" lean-forward="true" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Annontation/src/cn/jater/learn/java_basic/annontation/FruitInfoUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="7" column="41" lean-forward="true" selection-start-line="7" selection-start-column="41" selection-end-line="7" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="358">
+            <caret line="178" column="28" selection-start-line="178" selection-start-column="28" selection-end-line="178" selection-end-column="28" />
+            <folding>
+              <element signature="e#80#81#0" expanded="true" />
+              <element signature="e#111#112#0" expanded="true" />
+              <element signature="e#147#148#0" expanded="true" />
+              <element signature="e#196#197#0" expanded="true" />
+              <element signature="e#231#232#0" expanded="true" />
+              <element signature="e#282#283#0" expanded="true" />
+            </folding>
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Annontation/src/cn/jater/learn/java_basic/annontation/FruitName.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="4" selection-start-line="4" selection-end-line="9" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Annontation/src/cn/jater/learn/java_basic/annontation/FruitColor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="4" selection-start-line="4" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Annontation/src/cn/jater/learn/java_basic/annontation/FruitProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="56">
+          <caret line="4" selection-start-line="4" selection-end-line="11" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Annontation/src/cn/jater/learn/java_basic/annontation/Apple.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Annontation/src/cn/jater/learn/java_basic/annontation/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+          <folding>
+            <element signature="e#111#112#0" expanded="true" />
+            <element signature="e#166#167#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
   </component>
 </project>
