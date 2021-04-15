@@ -3,7 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Annontation/Annontation.iml" filepath="$PROJECT_DIR$/Annontation/Annontation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DataType/DataType.iml" filepath="$PROJECT_DIR$/DataType/DataType.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Generics/Generics.iml" filepath="$PROJECT_DIR$/Generics/Generics.iml" />
       <module fileurl="file://$PROJECT_DIR$/Reflection/Reflection.iml" filepath="$PROJECT_DIR$/Reflection/Reflection.iml" />
+      <module fileurl="file://$PROJECT_DIR$/String_Builder_Buffer/String_Builder_Buffer.iml" filepath="$PROJECT_DIR$/String_Builder_Buffer/String_Builder_Buffer.iml" />
     </modules>
   </component>
 </project>

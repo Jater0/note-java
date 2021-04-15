@@ -1,5 +1,257 @@
 # Java Basic
 
+## Data Type(数据类型)
+
+#### 基础类型
+
+- byte
+- char
+- short
+- int
+- float
+- long
+- double
+- boolean
+
+boolean只有两个值：true、false，可以使用1bit来存储，但是具体大小没有明确规定。JVM会在编译时期将boolean类型的数据转换成int，使用1来表示true，0表示false。
+
+JVM支持boolean数组，但是是通过读写byte数组来实现的
+
+-----
+
+#### 包装类型
+
+
+
+-----
+
+#### 缓存池
+
+##### **`new Integer()`与`Integer.valueOf()`的区别在于**
+
+- **`new Integer()`每次都会新建一个对象**
+- **`Integer.valueOf()`会使用缓存池中的对象，多次调用**
+
+``` java
+Integer x = new Integer(123);
+Integer y = new Integer(123);
+System.out.println(x == y); // false
+Integer z = Integer.valueOf(123);
+Integer k = Integer.valueOf(123);
+System.out.println(z == k); // true
+```
+
+##### **`valueOf()`方法的实现**
+
+**先判断值是否在缓存池中，如果在的话就直接返回缓存池的内容。**
+
+``` java
+public static Integer valueOf(int i) {
+    if (i >= IntegerCache.low && i <= IntegerCache.high)
+        return IntegerCahce.cache[i + (-IntegerCache.low)];
+    return new Integer(i);
+}
+```
+
+**Java8中，Integer缓存池的大小默认为-128~127**
+
+##### Integer缓存池的实现
+
+``` java
+static final int low = -128;
+static final int high;
+static final Integer cache[];
+
+static {
+    int h = 127;
+    String integerCacheHighPropValue = sun.misc.VM.getSavedProperty("java.lang.Integer.IntegerCache.high");
+    if (integerCacheHighPropValue != null) {
+        try {
+            int i = parseInt(integerCacheHighPropValue);
+            i = Math.max(i, 127);
+            // Maximum array size is Integer.MAX_VALUE
+            h = Math.min(i, Integer.MAX_VALUE - (-low) - 1);
+        } catch (NumberFormatException nfe) {
+            // If the property cannot be parsed into an int, ignore it.
+        }
+    } 
+    high = h;
+    cache = new Integer[(high - low) + 1];
+    int j = low;
+    for (int k = 0; k < cache.length; k++) {
+        cache[k] = new Integer(j++);
+    }
+    // range [-128, 127] must be interned (JLS7 5.1.7)
+    assert IntegerCache.high >= 127;
+}
+```
+
+**编译器会在自动装箱过程调用valueOf()方法，因此多个值相同且值在缓存池范围内的Integer实例自动装箱来创建，那么就会引用相同的对象**
+
+``` java
+Integer m = 123;
+Integer n = 123;
+System.out.println(m == n);
+```
+
+##### 基本类型对应的缓存池如下
+
+- boolean values true & false
+- all byte values
+- short values between -128 ~ 127
+- int values between -128 ~ 127
+- char in the range \u0000 to \u007F
+
+**在jdk1.8所有的数组类缓存池中，Integer的缓存池`IntegerCache`很特殊，这个缓存池的下界是-128，上界默认是127，但是这个上界是可调的，在启动JVM的时候，通过`-XX:AutoBoxCacheMax=<size>`来指定这个缓存池的大小，该选项在JVM初始化的时候会设定一个名为`java.lang.IntegerCache.high`系统属性，然后`IntegerCache`初始化的时候就会读取该系统属性来决定上界**
+
+-----
+
+
+
+## String
+
+#### 概览
+
+**String被声明为final，因此它不可被继承，(Integer等包装类也不能被继承)**
+
+**Java 8中，String内部使用char数组存储数据**
+
+``` java
+public final class String implements java.io.Serializable, Comparable<String>, CharSequence {
+    // The value is use for character storage
+    private final char value[];
+}
+```
+
+**Java 9之后，String类的实现改用byte数组存储字符串，同时使用`coder`来标识使用了哪种编码**
+
+``` java
+public final class String implements java.io.Serializable, Comparable<String>, CharSequence {
+    // The value is use for character storage
+    private final byte[] value;
+    
+    // The identifier of the encoding used to encode the bytes in @{code value}
+    private final byte coder;
+}
+```
+
+**value数组被声明为final，这意味着value数组初始化之后就不能再引用其他数组。并且String内部没有改变value数组的方法，因此可以保证String不可变**
+
+-----
+
+#### 不可变的好处
+
+1. **可以缓存hash值**
+
+因为String的hash值经常被使用，例如String用做HashMap的key。不可变的特定可以使得hash值不变，因此只需要进行一次计算。
+
+2. **String Pool的需要**
+
+如果一个String对象已经被创建过了，那么就会从String Pool中取得引用。只有String是不可变的，才可能使用String Pool。
+
+![image-20210415094617120](images\string-pool.png)
+
+3. **安全性**
+
+String经常作为参数，String不可变性可以保证参数不可变。Such as：在作为网络连接参数的情况下，如果String是可变的，那么在网络连接过程中，String被改变，改变String的那一方以为现在连接的是其他主机，而实际情况却不一定是。
+
+4. **线程安全**
+
+String不可变性天生具有线程安全，可以在多个线程中安全地使用。
+
+-----
+
+#### String、StringBuffer and StringBuilder
+
+##### 可变性
+
+- String不可变
+- StringBuffer & StringBuilder可变
+
+##### 线程安全
+
+- StringBuilder线程不安全
+- StringBuffer线程安全，内部使用synchronized 进行同步
+
+-----
+
+#### String Pool(字符串常量池)
+
+**String Pool保存着所有字符串字面量(literal strings)， 这些字面量在编译时期就确定。不仅如此，还可以使用String的intern方法在运行过程中将字符串添加到String Pool中。**
+
+**当一个字符串调用intern方法时，如果String Pool中已经存在一个人字符串和该字符串值相等(使用equals方法进行确定)，那么就会返回String Pool中字符串的引用；否则，就会在String Pool中添加一个新的字符串，并返回这个新字符串的引用。**
+
+``` java
+String s1 = new String("aaa");
+String s2 = new String("aaa");
+System.out.println(s1 == s2); // false
+String s3 = s1.intern();
+String s4 = s2.intern();
+System.out.println(s3 == s4); // true
+```
+
+> **s1和s2采用了new String()的方式创建两个不同字符串，**
+>
+> **而s3和s4是通过`s1.intern()`和`s2.intern()`方法获取的同一个字符串的引用。**
+>
+> **intern()首先将"aaa"存入String Pool中，然后返回这个字符串的引用，因此s3和s4引用的是同一个字符串。**
+
+
+
+**如果是采用“bbb”这种字面量的形式创建字符串，会自动地将字符串存入String Pool中。**
+
+``` java
+String s5 = "bbb";
+String s6 = "bbb";
+System.out.prinln(s5 == s6); // true
+```
+
+**在Java 7之前，String Pool被放在运行时常量池中，它属于永久代。**
+
+**而在Java 7， String Pool被移到堆中。这是因为永久代空间有限，在大量使用字符串的场景下会导致`OutOfMemoryError`错误**
+
+-----
+
+#### new String("abc")
+
+**使用这种方式一共会创建两个字符串对象(前提是String Pool中还没有“abc”这个字符串对象)**
+
+- **“abc”属于字符串字面量，因此编译时期会在String Pool中创建一个字符串对象，指向这个“abc”字符串字面量；**
+- **而使用new的方式会在堆中创建一个字符串对象**
+
+**例子**
+
+``` java
+public class StringMain {
+    public static void main(String[] args) {
+        String s1 = new String("aaa");
+    }
+}
+```
+
+**javap -verbose进行反编译**
+
+![反编译](images\string-pool-runtime.png)
+
+在Constant Pool中，#23存储这个字符串字面量“abc”，#3是String Pool的字符串对象，它指向#23这个字面量。
+
+在main方法中，0:行使用new #2在堆中创建一个字符串对象，并且使用ldc #3将String Pool中的字符串对象作为String构造函数的参数。
+
+###### String构造函数源码
+
+在将一个字符串作为另一个字符串对象的构造函数参数时，并不会完全复制value数组，而是都会指向同一个value数组。
+
+``` java
+public String(String original) {
+    this.value = original.value;
+    this.hash = original.hash;
+}
+```
+
+-----
+
+
+
 ## Reflection(反射机制)
 
 #### 介绍
@@ -117,6 +369,8 @@ public class Main {
 1. **当使用JDBC链接数据库时使用`Class.forName()`通过反射加载数据库的驱动程序**
 2. **Spring框架的IoC创建对象以及AOP功能都和反射有联系**
 3. **动态配置实例的属性**
+
+-----
 
 
 
@@ -289,3 +543,4 @@ public class Main {
 ###### `Output`
 
 ![实例输出](\images\annotation-output.png)
+
