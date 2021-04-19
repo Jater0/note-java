@@ -1267,9 +1267,11 @@ class OverloadingExample {
 }
 ```
 
+-----
 
 
-## Reflection(反射机制)
+
+## 七、Reflection(反射机制)
 
 #### 介绍
 
@@ -1392,7 +1394,35 @@ public class Main {
 - [Trail: The Reflection API](https://docs.oracle.com/javase/tutorial/reflect/index.html)
 - [深入解析 Java 反射（1）- 基础](http://www.sczyh30.com/posts/Java/java-reflection-1/)
 
-## Annotation(注解)
+-----
+
+
+
+## 八、Exception(异常)
+
+Throwable可以用来表示任何可以作为异常抛出的类，分为两种：**Error**和**Exception**。
+
+其中Error用来表示JVM无法处理的错误。
+
+Exception分为两种：
+
+- **受检异常**： 需要用try...catch...语句捕获并进行处理，并且可以从异常中恢复
+- **非受检异常**： 时程序运行时错误，例如除0会引发Arithmetic Exception，此时程序崩溃并且无法恢复。
+
+![Exception & Error](images\exception.png)
+
+- [Java 入门之异常处理](https://www.cnblogs.com/Blue-Keroro/p/8875898.html)
+- [Java Exception Interview Questions and Answers](https://www.journaldev.com/2167/java-exception-interview-questions-and-answersl)
+
+-----
+
+
+
+
+
+
+
+## 十、Annotation(注解)
 
 #### 介绍
 
