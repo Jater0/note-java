@@ -1,6 +1,6 @@
 # Java Basic
 
-## Data Type(数据类型)
+## 一、Data Type(数据类型)
 
 #### 基础类型
 
@@ -108,7 +108,7 @@ System.out.println(m == n);
 
 
 
-## String
+## 二、String
 
 #### 概览
 
@@ -210,6 +210,8 @@ System.out.prinln(s5 == s6); // true
 
 **而在Java 7， String Pool被移到堆中。这是因为永久代空间有限，在大量使用字符串的场景下会导致`OutOfMemoryError`错误**
 
+[深入解析String#intern](https://tech.meituan.com/2014/03/06/in-depth-understanding-string-intern.html)
+
 -----
 
 #### new String("abc")
@@ -249,6 +251,136 @@ public String(String original) {
 ```
 
 -----
+
+
+
+## 三、Operation(运算)
+
+#### 参数传递
+
+Java的参数是以值传递的形式存入方法中,而不是引用传递.
+
+以下代码中的Dog dog的dog是一个指针,存储的是对象的地址。在将一个参数传入一个方法时，本质上是将对象的地址以值的方式传递到形参中。
+
+```Java
+public class Dog {
+    String name;
+
+    Dog(String name) {
+        this.name = name;
+    }
+
+    String getName() {
+        return name;
+    }
+
+    void setName(String name) {
+        this.name = name;
+    }
+
+    String getObjectAddress() {
+        return super.toString();
+    }
+}
+```
+
+在方法中改变对象的字段值会改变原对象该字段值，因为引用的是同一个对象
+
+```Java
+public class PassByValueExample {
+    private static void func(Dog dog) {
+        dog.setName("B");
+    }
+    public static void main(String[] args) {
+        Dog dog = new Dog("A");
+        func(dog);
+        System.out.println(dog.getName()); // B
+    }
+}
+```
+
+但是在方法中将指针引用了其他对象，那么此时方法里和方法外的两个指针指向了不同的对象，在一个指针改变其所指向对象的内容对另一个指针所指向的对象没有影响。
+
+```Java
+public class PassByValueExample {
+    private static void func(Dog dog) {
+        dog.setName("B");
+    }
+    public static void main(String[] args) {
+        Dog dog = new Dog("A");
+        func(dog);
+        System.out.println(dog.getName()); // B
+    }
+}
+```
+
+[StackOverflow: Is Java “pass-by-reference” or “pass-by-value”?](https://stackoverflow.com/questions/40480/is-java-pass-by-reference-or-pass-by-value)
+
+-----
+
+#### float & double
+
+Java不能隐式执行向下转型，因为这样会使得精度降低。
+
+1.1字面量属于double类型，不能直接将1.1赋值给float变量，因为这是向下转型。
+
+``` java
+// float f = 1.1;
+```
+
+1.1f字面量才是float类型
+
+``` java
+float f = 1.1f;
+```
+
+-----
+
+#### 隐式类型转换
+
+因为字面量1是Int类型，它比short类型精度更高，因此不能隐式地将int类型向下转型为short类型。
+
+``` java
+short s1 = 1;
+// s1 = s1 + 1; // Incompatible types
+```
+
+但是使用+=或者是++运算符会执行隐式类型转换。
+
+```Java
+s1 += 1;
+s1++;
+```
+
+上面的语句相当于将s1 + 1的计算结果进行了向下转型：
+
+```java
+s1 = (short)(s1 + 1);
+```
+
+[StackOverflow : Why don't Java's +=, -=, *=, /= compound assignment operators require casting?](https://stackoverflow.com/questions/8710619/why-dont-javas-compound-assignment-operators-require-casting)
+
+-----
+
+#### Switch
+
+在java 7开始，可以在switch条件判断语句中使用String对象。
+
+``` java
+String s = "a";
+switch (s) {
+    case "a":
+        System.out.println("aaa");
+        break;
+    case "B":
+        System.out.println("BBB");
+        break;
+}
+```
+
+switch不支持long、float、double，是因为switch的设计初衷是对那些只有少数几个值的类型进行等值判断，如果值过于复杂，那么还是if比较合适。
+
+[StackOverflow : Why can't your switch statement data type be long, Java?](https://stackoverflow.com/questions/2676210/why-cant-your-switch-statement-data-type-be-long-java)
 
 
 
