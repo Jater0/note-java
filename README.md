@@ -924,13 +924,358 @@ public class CloneConstructorExample {
 }
 ```
 
+-----
+
+
+
+## 六、Extends(继承)
+
+#### 访问权限
+
+Java中有三个访问权限修饰符：private、protected以及public，如果不加访问修饰符，表示包级可见。
+
+可以对类或类中的成员(字段和方法)加上访问修饰符
+
+- 类可见表示其他类可以用这个类创建实例对象。
+- 成员可见表示其他类可以用这个类的实例对象访问到该成员。
+
+protected用于修饰成员，表示在继承体系中成员对于子类可见，但是这个访问修饰符对于类没有意义。
+
+设计良好的模块会隐藏所有的实现细节，把它的 API 与它的实现清晰地隔离开来。模块之间只通过它们的 API 进行通信，一个模块不需要知道其他模块的内部工作情况，这个概念被称为信息隐藏或封装。因此访问权限应当尽可能地使每个类或者成员不被外界访问。
+
+如果子类的方法重写了父类的方法，那么子类中该方法的访问级别不允许低于父类的访问级别。这是为了确保可以使用父类实例的地方都可以使用子类实例去代替，也就是确保满足里氏替换原则。
+
+字段决不能是公有的，因为这么做的话就失去了对这个字段修改行为的控制，客户端可以对其随意修改。例如下面的例子中，AccessExample 拥有 id 公有字段，如果在某个时刻，我们想要使用 int 存储 id 字段，那么就需要修改所有的客户端代码。
+
+``` java
+public class AccessExample {
+    public String id;
+}
+```
+
+可以使用公有的 getter 和 setter 方法来替换公有字段，这样的话就可以控制对字段的修改行为。
+
+```java
+public class AccessExample {
+
+    private int id;
+
+    public String getId() {
+        return id + "";
+    }
+
+    public void setId(String id) {
+        this.id = Integer.valueOf(id);
+    }
+}
+```
+
+但是也有例外，如果是包级私有的类或者私有的嵌套类，那么直接暴露成员不会有特别大的影响。
+
+``` java
+public class AccessWithInnerClassExample {
+    private class InnerClass {
+        int x;
+    }
+    
+    private InnerClass innerClass;
+    
+    public AccessWithInnerClassExample() {
+        innerClass = new InnerClass();
+    }
+    
+    public int getValue() {
+        return innerClass.x; // 直接访问
+    }
+}
+```
+
+-----
+
+#### 抽象类和接口
+
+##### 抽象类
+
+抽象类和抽象方法都使用abstract关键字进行声明。如果一个类中包含抽象方法，那么这个类必须声明为抽象类。
+
+抽象类和普通类最大的区别是，抽象类不能被实例化，只能被继承
+
+``` java
+public abstract class AbstractClassExample {
+    protected int x;
+    private int y;
+    public abstract void func1();
+    
+    public void func2() {
+        sout("func2");
+    }
+}
+```
+
+``` java
+public class AbstractExtendClassExample extends AbstractClassExample {
+    @Override
+    public void func1() {
+        System.out.println("func1");
+    }
+
+    public static void main(String[] args) {
+        AbstractExtendClassExample a1 = new AbstractExtendClassExample();
+        a1.func1();
+        a1.func2();
+    }
+}
+```
+
+##### 接口
+
+接口是抽象类的延伸，在Java 8之前，它可以看出一个完全抽象的类，也就是说它不能有任何的方法实现。
+
+从Java 8开始，接口也可以拥有默认的方法实现，这是因为不支持默认方法的接口的维护成本很高。在Java 8之前，如果一个接口需要添加新的方法，那么需要修改所有实现了该接口的类，让他们呢都实现新增的方法。
+
+接口的成员(字段 + 方法)默认为public的，并且不允许定义为private和protected。从Java 9开始，允许将方法定义为private，这样就能定义某些复用的代码又不会把方法暴露出去。
+
+接口的字段默认都是static和final的。
+
+```java
+public interface InterfaceExample {
+    void func1();
+
+    default void func2() {
+        System.out.println("func2");
+    }
+
+    int x = 123;
+
+    public int z = 0;
+}
+```
+
+```Java
+public class InterfaceImplementExample implements InterfaceExample {
+    @Override
+    public void func1() {
+        System.out.println("func1");
+    }
+
+    public static void main(String[] args) {
+        InterfaceImplementExample ie2 = new InterfaceImplementExample();
+        ie2.func1();
+        ie2.func2();
+        System.out.println(InterfaceExample.x);
+        System.out.println(InterfaceExample.z);
+    }
+}
+```
+
+##### 比较
+
+- 从设计层面上看，抽象类提供了一种IS-A关系，需要满足里氏替换原则，即子类对象必须能够替换掉所有父类的对象。而接口更像一种LIKE-A关系，它只是提供一种方法实现契约，并不要求接口的实现接口的类具有IS-A关系。
+- 从使用上看，一个类可以实现多个接口，但不能继承多个抽象类。
+- 接口的字段只能是static和final类型的，而抽象类的字段没有限制。
+- 接口的成员只能是public的，而抽象类的成员可以有多种访问权限。
+
+##### 使用选择
+
+使用接口：
+
+- 需要让不相关的类都实现一个方法，例如不相关的类都可以实现Comparable接口中的compareTo()方法；
+- 需要使用多重继承
+
+使用抽象类：
+
+- 需要在几个相关的类中共享代码
+- 需要能控制继承来的成员的访问权限，而不是都为public
+- 需要继承非静态和非常量字段
+
+在很多情况下，接口优先于抽象类。因为接口没有抽象类严格的类层次结构要求，可以灵活地为一个类添加行为。并且从 Java 8 开始，接口也可以有默认的方法实现，使得修改接口的成本也变的很低。
+
+- [Abstract Methods and Classes](https://docs.oracle.com/javase/tutorial/java/IandI/abstract.html)
+- [深入理解 abstract class 和 interface](https://www.ibm.com/developerworks/cn/java/l-javainterface-abstract/)
+- [When to Use Abstract Class and Interface](https://dzone.com/articles/when-to-use-abstract-class-and-intreface)
+- [Java 9 Private Methods in Interfaces](https://www.journaldev.com/12850/java-9-private-methods-interfaces)
+
+-----
+
+#### Super
+
+- 访问父类的构造函数：可以使用super()函数访问父类的构造函数，从而委托父类完成一些初始化工作。应该注意到，子类一定会调用父类的构造函数来完成初始化工作，一般是调用父类的默认构造函数，如果子类需要调用父类其他构造函数，那么就可以使用super()函数
+- 访问父类的成员：如果子类重写了父类的某个方法，可以通过使用super关键字来引用父类的方法实现
+
+```Java
+public class SuperExample {
+    protected int x;
+    protected int y;
+
+    public SuperExample(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public void func() {
+        System.out.println("SuperExample.func()");
+    }
+}
+```
+
+```Java
+public class SuperExtendExample extends SuperExample {
+    private int z;
+
+    public SuperExtendExample(int x, int y, int z) {
+        super(x, y);
+        this.z = z;
+    }
+
+    @Override
+    public void func() {
+        super.func();
+        System.out.println("SuperExtendExample.func()");
+    }
+
+    public static void main(String[] args) {
+        SuperExtendExample se1 = new SuperExtendExample(1, 3, 5);
+        se1.func();
+    }
+}
+```
+
+[Using the Keyword super](https://docs.oracle.com/javase/tutorial/java/IandI/super.html)
+
+-----
+
+#### 重写和重载
+
+##### 重写 --- override
+
+存在于继承体系中，指子类实现了一个与父类在方法声明上完全相同的一个方法。
+
+为了满足里氏替换原则，重写有以下三个限制：
+
+- 子类方法的访问权限必须大于等于父类方法
+- 子类方法的返回类型必须是父类方法返回类型或为其子类型
+- 子类方法抛出的异常必须是父类抛出异常类型或为其子类型
+
+使用@Override注解，可以让编译器帮忙检查是否满足上面的三个限制条件。
+
+下面的示例中，SubClass 为 SuperClass 的子类，SubClass 重写了 SuperClass 的 func() 方法。其中：
+
+- 子类方法访问权限为 public，大于父类的 protected。
+- 子类的返回类型为 ArrayList<Integer>，是父类返回类型 List<Integer> 的子类。
+- 子类抛出的异常类型为 Exception，是父类抛出异常 Throwable 的子类。
+- 子类重写方法使用 @Override 注解，从而让编译器自动检查是否满足限制条件。
+
+```Java
+class SuperClass {
+    protected List<Integer> func() throws Throwable {
+        return new ArrayList<>();
+    }
+}
+
+class SubClass extends SuperClass {
+    @Override
+    public ArrayList<Integer> func() throws Exception {
+        return new ArrayList<>();
+    }
+}
+```
+
+在调用一个方法时，先从本类中查找看是否有对应的方法，如果没有再到父类中查看，看是否从父类继承来。否则就要对参数进行转型，转成父类之后看是否有对应的方法。总的来说，方法调用的优先级为：
+
+- this.func(this)
+- super.func(this)
+- this.func(super)
+- super.func(super)
+
+```java
+/*
+  A
+  |
+  B
+  |
+  C
+  |
+  D
+*/
+public class A {
+    public void show(A obj) {
+        System.out.println("A.show(A)");
+    }
+
+    public void show(C obj) {
+        System.out.println("A.show(C)");
+    }
+}
+
+public class B extends A {
+    @Override
+    public void show(A obj) {
+        System.out.println("B.show(A)");
+    }
+}
+
+public class C extends B {}
+
+public class D extends C {}
+```
+
+```java
+public class OverrideExample {
+    public static void main(String[] args) {
+        A a = new A();
+        B b = new B();
+        C c = new C();
+        D d = new D();
+        // 在A中存在show(A obj), 直接调用
+        a.show(a); // A.show(A)
+        // 在A中不存在show(B obj), 将B转型成其父类A
+        a.show(b); // A.show(A)
+        // 在B中存在从A继承来的show(C obj), 直接调用
+        b.show(c); // A.show(C)
+        // 在B中不存在show(D obj), 但是存在从A继承来的show(C obj), 将D转型成其父类C
+        b.show(d); // A.show(C)
+        
+        // 引用的还是B对象, 所以ba和b的调用结果相同
+        A ba = new B();
+        ba.show(c); // A.show(C)
+        ba.show(d); // A.show(C)
+    }
+}
+```
+
+##### 重载 --- overload
+
+存在于同一类中，指一个方法与已存在的方法名称上相同，但是参数类型、个数、顺序至少有一个不同。
+
+返回值不同，其他都相同不算是重载。
+
+``` java
+class OverloadingExample {
+    public void show(int x) {
+        sout(x);
+    }
+    
+    public void show(int x, String y) {
+        sout(x + " " + y);
+    }
+    
+    main() {
+        OverloadingExample example = new OverloadingExample();
+        example.show(1);
+        example.show(1, "2")
+    }
+}
+```
+
+
+
 ## Reflection(反射机制)
 
 #### 介绍
 
 **Java反射机制是在运行状态中,对于任意一个类,都能够知道这个类的所有属性和方法;对于任意一个对象,都能够调用它的任意一个方法和属性;这种动态获取的信息以及动态调用对象的方法的功能叫做Java的反射机制**
 
-
+-----
 
 #### 获取Class对象的两种方式
 
@@ -946,7 +1291,7 @@ Class targetObjectClass = TargetObject.class
 Class targetObjectClass  = Class.forName("cn.jater.reflection.TargetObject")
 ```
 
-
+-----
 
 #### 实例
 
@@ -1010,14 +1355,14 @@ public class Main {
 }
 ```
 
-
+-----
 
 #### 静态编译和动态编译
 
 1. **静态编译**: **在编译时确定类型,绑定对象**
 2. **动态编译**: **运行时确定类型,绑定对象**
 
-
+-----
 
 #### 反射机制优缺点
 
@@ -1030,7 +1375,7 @@ public class Main {
 - **性能瓶颈: 反射相当于一系列解释操作,通知JVM要做的事情,性能比直接的Java代码要慢很多**
 - **安全问题: 让我们动态操作改变类的属性同时也增加了类的安全隐患**
 
-
+-----
 
 #### 反射的应用场景
 
@@ -1044,7 +1389,8 @@ public class Main {
 
 -----
 
-
+- [Trail: The Reflection API](https://docs.oracle.com/javase/tutorial/reflect/index.html)
+- [深入解析 Java 反射（1）- 基础](http://www.sczyh30.com/posts/Java/java-reflection-1/)
 
 ## Annotation(注解)
 
