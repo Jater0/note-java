@@ -314,9 +314,154 @@ public static String quoteReplacement(String s) {
 
 
 
-### 3. 元字符
+### 3. Meta Characters(元字符)
 
+> 元字符(meta characters)就是正则表达式中具有特殊意义的专用字符。
 
+#### 3.1 基本元字符
+
+##### 多选(`|`)
+
+匹配多个可选字符串
+
+``` java
+checkMatches("yes|no", "yes"); // yes	matches: yes|no
+checkMatches("yes|no", "no"); // no matches: yes|no
+checkMatches("yes|no", "right"); // right not matches: yes|no
+```
+
+##### 分组(`()`)
+
+表达式由多个子表达式组成，可以使用`()`
+
+```java
+checkMatches("(play|end)(ing|ed)", "ended"); // ended   matches: (play|end)(ing|ed)
+checkMatches("(play|end)(ing|ed)", "endings"); // endings  not matches: (play|end)(ing|ed)
+checkMatches("(play|end)(ing|ed)(s)", "endings"); // endings matches: (play|end)(ing|ed)(s)
+checkMatches("(play|end)(ing|ed)", "playing"); // playing  matches: (play|end)(ing|ed)
+checkMatches("(play|end)(ing|ed)", "played"); // played matches: (play|end)(ing|ed)
+```
+
+##### 指定单字符有效范围(`[]`)
+
+特定的单字符是否在`[]`的范围内
+
+```java
+checkMatches("[abc]", "a"); // a    matches: [abc]
+checkMatches("[abc]", "d"); // d   not matches: [abc]
+checkMatches("[0-9]", "7"); // 7   matches: [0-9]
+checkMatches("[A-Z]", "B"); // B   matches: [A-Z]
+checkMatches("[a-zA-Z]", "y"); // y    matches: [a-zA-Z]
+```
+
+##### 自定单字符无效范围(`[^]`)
+
+特定的单字符是否不在`[^]`的范围内
+
+``` java
+checkMatches("[^abc]", "a"); // a	not matches: [abc]
+checkMatches("[^abc]", "d"); // d   matches: [abc]
+checkMatches("[^0-9]", "7"); // 7	not matches: [0-9]
+checkMatches("[^A-Z]", "B"); // B	not matches: [A-Z]
+checkMatches("[^a-zA-Z]", "y"); // y not matches: [a-zA-Z]
+```
+
+##### 限制字符数量(`{}`)
+
+限制字符出现的次数
+
+| 字符   | 描述                                                     |
+| ------ | -------------------------------------------------------- |
+| {n}    | n是一个非负整数。匹配确定的n次。                         |
+| {n, }  | n是一个非负整数。至少匹配n次。                           |
+| {n, m} | m, n是一个非负整数。其中n<=m。最少匹配n次且最多匹配m次。 |
+
+```java
+checkMatches("ap{1}", "a"); // a        not matches: ap{1}
+checkMatches("ap{1}", "ap"); // ap    matches: ap{1}
+checkMatches("ap{1}", "app"); // app   not matches: ap{1}
+checkMatches("ap{1}", "appppppppp"); // appppppppp not matches: ap{1}
+
+checkMatches("ap{1,}", "a"); // a      not matches: ap{1,}
+checkMatches("ap{1,}", "ap"); // ap    matches: ap{1,}
+checkMatches("ap{1,}", "app"); // app  matches: ap{1,}
+checkMatches("ap{1,}", "appppppppp"); // appppppppp    matches: ap{1,}
+
+checkMatches("ap{2,5}", "a"); // a      not matches: ap{2,5}
+checkMatches("ap{2,5}", "ap"); // ap    not matches: ap{2,5}
+checkMatches("ap{2,5}", "app"); // app  matches: ap{2,5}
+checkMatches("ap{2,5}", "appppppppp"); // appppppppp   not matches: ap{2,5}
+```
+
+##### 转义字符(`\`)
+
+``` java
+* 的转义字符：\*
++ 的转义字符：\+
+? 的转义字符：\?
+^ 的转义字符：\^
+$ 的转义字符：\$
+. 的转义字符：\.
+\ 的转义字符：\\
+```
+
+##### 指定表达式字符串的开始(`^`)和结尾(`$`)
+
+**限制开头**
+
+```java
+checkMatches("^app[a-z]{0,}", "apple"); // apple    matches: ^app[a-z]{0,}
+checkMatches("^app[a-z]{0,}", "aplause"); // aplause   not matches: ^app[a-z]{0,}
+```
+
+**限制结尾**
+
+```java
+checkMatches("[a-z]{0,}ing$", "playing"); // playing    matches: [a-z]{0,}ing$
+checkMatches("[a-z]{0,}ing$", "long"); // long not matches: [a-z]{0,}ing$
+```
+
+#### 3.2 等价字符
+
+> **等价字符就是对于基本元字符表达的一种简化(等价字符的功能都可以通过基本元字符来实现)。**
+>
+> **等价字符简化了基本元字符的写法**
+
+##### 表示某一类型的等价字符
+
+| 字符 | 描述                             |
+| ---- | -------------------------------- |
+| `.`  | 匹配除了`\n`之外的任何单个字符   |
+| `\d` | 匹配一个数字字符。等价于[0-9]    |
+| `\D` | 匹配一个非数字字符。等价于`[^0-9]` |
+| `\w` | 匹配包括下划线的任何单词字符。类似但不等价与`[A-Za-z0-9]`，这里的单词字符指的是Unicode字符集 |
+| `\W` | 匹配任何非单词字符 |
+| `\s` | 匹配任何不可见字符，包括空格、制表符、换页符等等。等价于`[\f\n\r\t\v]` |
+| `\S` | 匹配任何可见字符。等价于`[^\f\n\r\t\v]` |
+
+##### 限制字符数量的等价字符
+
+在基本元字符中，可以使用`-`和`{}`来限制字符数量
+
+此外，还有`*`、`+`、`？`这个三个为了简化写法而出现的等价字符
+
+| 字符 | 描述                                      |
+| ---- | ----------------------------------------- |
+| *    | 匹配前面的子表达式零次或多次。等价于{0,}  |
+| +    | 匹配前面的子表达式一次或多次。等价于{1,}  |
+| ?    | 匹配前面的子表达式零次或一次。等价于{0,1} |
+
+##### 元字符优先级顺序
+
+| 运算符                                | 说明         |
+| ------------------------------------- | ------------ |
+| `\`                                   | 转义符       |
+| `()`、`(?:)`、`(?=)`、`[]`            | 括号和中括号 |
+| `*`、`+`、`?`、`{n}`、`{n,}`、`{n,m}` | 限定符       |
+| `^`、`$`、`*任何字符`、`任何字符*`    | 定位点和序列 |
+| `|`                                   | 替换         |
+
+字符具有高于替换运算符的优先级，使得`m|food`匹配`m`或`food`。若要匹配`mood`或`food`，可以使用`(m|f)ood`。
 
 ### 4. 分组构造
 

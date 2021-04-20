@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bbb3d32b-82c2-4480-8a3c-aff0464998e6" name="Default Changelist" comment="" />
+    <list default="true" id="bbb3d32b-82c2-4480-8a3c-aff0464998e6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Regular_Expression/src/cn/jater/learn/meta_char/EquivalentLimitChar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Regular_Expression/src/cn/jater/learn/meta_char/EquivalentTypeChar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Regular_Expression/src/cn/jater/learn/meta_char/GroupBy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Regular_Expression/src/cn/jater/learn/meta_char/LimitCharLength.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Regular_Expression/src/cn/jater/learn/meta_char/LimitStringStartEnd.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Regular_Expression/src/cn/jater/learn/meta_char/MultiSelect.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Regular_Expression/src/cn/jater/learn/meta_char/SingleCharMatch.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Regular_Expression/src/cn/jater/learn/meta_char/SingleCharMatchAnti.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Regular_Expression/cn/jater/learn/matcher/MatcherReplaceExample.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Regular_Expression/cn/jater/learn/matcher/MatcherReplaceExample.class" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,22 +30,10 @@
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Regular_Expression/src/cn/jater/learn/matcher/MatcherCheckExample.java">
+        <entry file="file://$PROJECT_DIR$/Regular_Expression/src/cn/jater/learn/meta_char/EquivalentTypeChar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Regular_Expression/src/cn/jater/learn/matcher/MatcherFindExample.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="11" column="20" lean-forward="true" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
+            <state relative-caret-position="12">
+              <caret line="6" column="4" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="14" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -41,10 +42,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Regular_Expression/src/cn/jater/learn/matcher/MatcherReplaceExample.java">
+        <entry file="file://$PROJECT_DIR$/Regular_Expression/src/cn/jater/learn/meta_char/EquivalentLimitChar.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3">
-              <caret line="25" column="9" lean-forward="true" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+            <state relative-caret-position="294">
+              <caret line="27" column="25" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -70,6 +71,14 @@
         <option value="$PROJECT_DIR$/Regular_Expression/src/cn/jater/learn/matcher/MatcherExample.java" />
         <option value="$PROJECT_DIR$/Regular_Expression/src/cn/jater/learn/matcher/MatcherFindExample.java" />
         <option value="$PROJECT_DIR$/Regular_Expression/src/cn/jater/learn/matcher/MatcherReplaceExample.java" />
+        <option value="$PROJECT_DIR$/Regular_Expression/src/cn/jater/learn/meta_char/MultiSelect.java" />
+        <option value="$PROJECT_DIR$/Regular_Expression/src/cn/jater/learn/meta_char/GroupBy.java" />
+        <option value="$PROJECT_DIR$/Regular_Expression/src/cn/jater/learn/meta_char/SingleCharMatch.java" />
+        <option value="$PROJECT_DIR$/Regular_Expression/src/cn/jater/learn/meta_char/SingleCharMatchAnti.java" />
+        <option value="$PROJECT_DIR$/Regular_Expression/src/cn/jater/learn/meta_char/LimitChar.java" />
+        <option value="$PROJECT_DIR$/Regular_Expression/src/cn/jater/learn/meta_char/LimitStringStartEnd.java" />
+        <option value="$PROJECT_DIR$/Regular_Expression/src/cn/jater/learn/meta_char/EquivalentTypeChar.java" />
+        <option value="$PROJECT_DIR$/Regular_Expression/src/cn/jater/learn/meta_char/EquivalentLimitChar.java" />
       </list>
     </option>
   </component>
@@ -80,13 +89,15 @@
       </MavenImportingSettings>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="951" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="-9" />
     <option name="y" value="-9" />
     <option name="width" value="978" />
     <option name="height" value="1048" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -115,7 +126,15 @@
               <item name="Java_Advanced" type="462c0819:PsiDirectoryNode" />
               <item name="Regular_Expression" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="matcher" type="462c0819:PsiDirectoryNode" />
+              <item name="learn" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Java_Advanced" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Java_Advanced" type="462c0819:PsiDirectoryNode" />
+              <item name="Regular_Expression" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="learn" type="462c0819:PsiDirectoryNode" />
+              <item name="meta_char" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -126,8 +145,10 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="full.screen.before.presentation.mode" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="experimental" />
@@ -144,13 +165,13 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.MatcherReplaceExample">
-    <configuration name="MatcherCheckExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cn.jater.learn.matcher.MatcherCheckExample" />
+  <component name="RunManager" selected="Application.EquivalentLimitChar">
+    <configuration name="EquivalentLimitChar" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.jater.learn.meta_char.EquivalentLimitChar" />
       <module name="Regular_Expression" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cn.jater.learn.matcher.*" />
+          <option name="PATTERN" value="cn.jater.learn.meta_char.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -158,12 +179,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MatcherFindExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cn.jater.learn.matcher.MatcherFindExample" />
+    <configuration name="EquivalentTypeChar" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.jater.learn.meta_char.EquivalentTypeChar" />
       <module name="Regular_Expression" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cn.jater.learn.matcher.*" />
+          <option name="PATTERN" value="cn.jater.learn.meta_char.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -171,12 +192,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MatcherReplaceExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="cn.jater.learn.matcher.MatcherReplaceExample" />
+    <configuration name="LimitCharLength" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.jater.learn.meta_char.LimitCharLength" />
       <module name="Regular_Expression" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="cn.jater.learn.matcher.*" />
+          <option name="PATTERN" value="cn.jater.learn.meta_char.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LimitStringStartEnd" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.jater.learn.meta_char.LimitStringStartEnd" />
+      <module name="Regular_Expression" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.jater.learn.meta_char.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SingleCharMatchAnti" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="cn.jater.learn.meta_char.SingleCharMatchAnti" />
+      <module name="Regular_Expression" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="cn.jater.learn.meta_char.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -186,9 +233,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.MatcherReplaceExample" />
-        <item itemvalue="Application.MatcherFindExample" />
-        <item itemvalue="Application.MatcherCheckExample" />
+        <item itemvalue="Application.EquivalentLimitChar" />
+        <item itemvalue="Application.EquivalentTypeChar" />
+        <item itemvalue="Application.LimitStringStartEnd" />
+        <item itemvalue="Application.LimitCharLength" />
+        <item itemvalue="Application.SingleCharMatchAnti" />
       </list>
     </recent_temporary>
   </component>
@@ -202,22 +251,22 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1618846274921</updated>
-      <workItem from="1618846279341" duration="10315000" />
+      <workItem from="1618846279341" duration="19568000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10315000" />
+    <option name="totallyTimeSpent" value="19568000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <frame x="-7" y="-7" width="782" height="838" extended-state="0" />
     <layout>
       <window_info id="Image Layers" />
       <window_info id="Designer" />
       <window_info id="UI Designer" />
       <window_info id="Capture Tool" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.51541555" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.51243097" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
@@ -227,7 +276,7 @@
       <window_info anchor="bottom" id="Event Log" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3069307" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3371105" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -248,17 +297,17 @@
       <window_info id="UI Designer" order="2" />
       <window_info id="Capture Tool" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="5" weight="0.51541555" />
+      <window_info content_ui="combo" id="Project" order="5" weight="0.51340485" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="1" />
-      <window_info anchor="bottom" id="Terminal" order="2" />
+      <window_info anchor="bottom" id="Terminal" order="2" weight="0.33002833" />
       <window_info anchor="bottom" id="Database Changes" order="3" />
       <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="5" />
       <window_info anchor="bottom" id="Message" order="6" />
       <window_info anchor="bottom" id="Find" order="7" />
-      <window_info active="true" anchor="bottom" id="Run" order="8" visible="true" weight="0.3069307" />
+      <window_info anchor="bottom" id="Run" order="8" visible="true" weight="0.3381089" />
       <window_info anchor="bottom" id="Debug" order="9" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
@@ -281,10 +330,17 @@
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Regular_Expression/src/cn/jater/learn/matcher/MatcherCheckExample.java">
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/util/regex/Matcher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        <state relative-caret-position="204">
+          <caret line="707" column="13" lean-forward="true" selection-start-line="707" selection-start-column="13" selection-end-line="707" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Regular_Expression/src/cn/jater/learn/matcher/MatcherReplaceExample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3">
+          <caret line="25" column="9" lean-forward="true" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -301,17 +357,90 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/util/regex/Matcher.java">
+    <entry file="file://$PROJECT_DIR$/Regular_Expression/src/cn/jater/learn/matcher/MatcherCheckExample.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="707" column="13" lean-forward="true" selection-start-line="707" selection-start-column="13" selection-end-line="707" selection-end-column="13" />
+        <state relative-caret-position="-11">
+          <caret line="24" column="9" lean-forward="true" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Regular_Expression/src/cn/jater/learn/matcher/MatcherReplaceExample.java">
+    <entry file="file://$PROJECT_DIR$/Regular_Expression/src/cn/jater/learn/meta_char/MultiSelect.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3">
-          <caret line="25" column="9" lean-forward="true" selection-start-line="25" selection-start-column="9" selection-end-line="25" selection-end-column="9" />
+        <state relative-caret-position="87">
+          <caret line="6" column="4" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="14" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Regular_Expression/src/cn/jater/learn/meta_char/SingleCharMatch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="6" column="4" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="22" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Regular_Expression/src/cn/jater/learn/meta_char/SingleCharMatchAnti.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="237">
+          <caret line="17" column="8" selection-start-line="17" selection-start-column="8" selection-end-line="21" selection-end-column="66" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Regular_Expression/src/cn/jater/learn/meta_char/GroupBy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="6" column="4" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="14" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Regular_Expression/src/cn/jater/learn/meta_char/LimitCharLength.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="14" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Regular_Expression/src/cn/jater/learn/meta_char/LimitStringStartEnd.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="20" column="8" selection-start-line="20" selection-start-column="8" selection-end-line="21" selection-end-column="82" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Regular_Expression/src/cn/jater/learn/meta_char/EquivalentTypeChar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12">
+          <caret line="6" column="4" lean-forward="true" selection-start-line="6" selection-start-column="4" selection-end-line="14" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Regular_Expression/src/cn/jater/learn/meta_char/EquivalentLimitChar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="27" column="25" selection-start-line="27" selection-start-column="25" selection-end-line="27" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
